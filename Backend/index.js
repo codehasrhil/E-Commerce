@@ -3,6 +3,8 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import connectDB from './config.js/db.js'
 import router from './routes/authroutes.js'
+import ProductsRoutes from './routes/ProductsRoutes.js'
+import CartsRoutes from './routes/Cart.js'
 
 const app = express()
 
@@ -12,6 +14,8 @@ dotenv.config()
 app.use(cors())
 app.use(express.json())
 app.use('/api/auth',router)
+app.use('/api/products',ProductsRoutes)
+app.use("/cart",CartsRoutes)
 
 
 app.get('/',(req,resp)=>{
